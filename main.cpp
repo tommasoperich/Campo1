@@ -170,7 +170,7 @@ void es5(){
 
     for(int i = 0; i < n; i++){
       if(i != n - 1){
-        cout << numbers[i] << ", ";
+        cout << numbers[i] << " ";
       }else
       cout << numbers[i] << ".";
     }
