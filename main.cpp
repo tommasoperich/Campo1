@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
@@ -37,13 +36,13 @@ int main()
           cout << "0. Fine!" << endl;
         cin >> scelta;
         if(cin.fail()){
-      cout << "wrong number" << endl;
+      cout << "numero sbaia" << endl;
       cin.clear();
       scelta = -1;
     } else {
       switch(scelta){
         case 0:
-          cout << "good bye" << endl;
+          cout << "arrivederci" << endl;
           break;
         case 1:
           es1();
@@ -186,7 +185,7 @@ void es22() {
     cout << "Dato un vettore di N numeri aventi al massimo 3 cifre, interi positivi, contare le frequenze con le quali i numeri si ripartiscono nelle decadi 0-9, 10-19, ...., 980-999 e memorizzare tali frequenze nel vettore DEC." << endl;
   int N = 18, j = 0;
   int DEC[100];
-  for (int i = 0; i < 1000; i++){
+  for (int i = 0; i < 100; i++){
     DEC[i] = 0;
   }
   /*int numeri[18] = {41,485,340,526,188,739,489,387,988,488,710,173,304,843,970,988,843,970};*/
@@ -322,7 +321,7 @@ void es39() {
 void es43() {
     cout << "Le temperature minime registrate nei giorni di un mese sono organizzate in un vettore. Calcolare la media delle temperature rilevate nel mese e stamparla. Si stampino poi i giorni del mese in cui le temperature sono state inferiori alla media mensile." << endl;
   float media = 0;
-  int sommaTemperature = 0;
+  float sommaTemperature = 0;
   int temperature[31];
   for (int i = 0; i < 32; i++) {
     temperature[i] =  rand () % 15 + 20;
@@ -331,8 +330,7 @@ void es43() {
   media = sommaTemperature/31;
   for (int i = 1; i < 32; i++) {
     if ( temperature[i] < media ) {
-      cout << temperature[i] << endl;
-      cout << "giorno: " << i << endl;
+      cout <<"temperatura: "<< temperature[i]<<"°"<< " giorno: " << i << endl ;
     }
   }
   cout << "--------------" << endl;
