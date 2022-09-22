@@ -43,7 +43,7 @@ int main()
     } else {
       switch(scelta){
         case 0:
-          cout << "good bye" << endl;
+          cout << "goodbye" << endl;
           break;
         case 1:
           es1();
