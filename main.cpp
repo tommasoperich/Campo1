@@ -1,517 +1,503 @@
-
 #include <iostream>
-#include <cmath>
 #include <cstdlib>
-#include <stdlib.h>
-#include <time.h>
-#include <bits/stdc++.h>
+#include <limits.h>
 
 using namespace std;
+
 void es1();
 void es2();
 void es3();
 void es4();
 void es5();
-void es22();
-void es39();
-void es43();
-void es57();
-void es71();
+void es20();
+void es31();
+void es47();
+void es61();
+void es62();
+struct struct_elenco{
+  string nome; 
+  int classe;
+  int votoFinale;
+};
 
 int main()
 {
-    int scelta;
-      do {
-          
-          cout << "------------" << endl;
-          cout << "1. Crea un vettore" << endl;
-          cout << "2. Utilizza gli indici per creare un vettore" << endl;
-          cout << "3. Crea un vettore e stampa la somma" << endl;
-          cout << "4. Determina da un vettore gli elementi pari e dispari" << endl;
-          cout << "5. Fai la somma di tutti i numeri che ci sono prima di uno 0 in un vettore ranom" << endl;
-          cout << "22. Ouput delle decadi di N numeri random" << endl;
-          cout << "39. Numeri pari e dispari con output dei restanti" << endl;
-          cout << "43. Media di 31 temperature e output di quelle sopra essa" << endl;
-          cout << "57. Gestisci i prodotti in un magazzino" << endl;
-          cout << "71. Massimi e minimi relativi di 30 numeri" << endl;
-          cout << "0. Fine!" << endl;
-        cin >> scelta;
-        if(cin.fail()){
-      cout << "wrong number" << endl;
+   int scelta;
+   do{
+     cout << endl<< endl;
+     cout <<"1. Caricare un vettore di N elementi con valori letti da tastiera"<< endl;
+     cout << "2. Costruire un vettore di N elementi, inserendo in ogni elemento il valore del suo indice" <<endl;
+     cout <<"3. Caricare un vettore di N elementi, stampando la somma dei suoi elementi" <<endl;
+     cout <<"4. Dato un vettore di N elementi, determinare se ciascun elemento è pari o dispari "<<endl;
+     cout << "5.Caricare un vettore di N elementi. Scorrendo il vettore, al primo zero incontrato stampare la somma di tutti gli elementi considerati e il loro numero"<<endl;
+     cout <<"20.Nei vettori A e B, ciascuno di N elementi, sono memorizzate due parole di N caratteri ciascuna, un carattere per ogni elemento di vettore. Verificare se le due parole sono uguali ed in caso contrario determinare quale delle due parole precede l'altra nell'ordine alfabetico. "<<endl;
+     cout<<"31 Stampare il calendario del 1990 sapendo che l'ultimo giorno del 1989 era domenica."<<endl;
+     
+     cout<<"47. È dato un elenco di N studenti con nome, classe, voto finale. Stampare il voto più basso, quello più alto e il nome e la classe degli studenti ai quali appartengono. Calcolare la media aritmetica dei voti e verificare se è sufficiente o insufficiente (<6). Stampare nome e classe degli studenti che hanno il voto finale inferiore alla media aritmetica dei voti. Contare il numero dei promossi e dei respinti e calcolarne le rispettive percentuali. Stampare l'elenco dei promossi cioè di coloro che hanno il voto finale sufficiente. "<<endl;
+     cout <<"61 Dato un vettore numerico di n elementi determinare qual e' l'elemento (o gli elementi) che si ripete piu' volte e quante volte si ripete. "<<endl;
+     
+     cout<<"62. Cercare un elemento X nella porzione di vettore delimitata da due indici (non negativi per ipotesi)"<<endl;
+    
+     
+
+     cout << "0. fine" << endl;
+     cin >> scelta;
+     if (cin.fail()){
+      cout << "wrong number " <<endl;
       cin.clear();
-      scelta = -1;
-    } else {
-      switch(scelta){
-        case 0:
-          cout << "good bye" << endl;
-          break;
-        case 1:
-          es1();
-          break;
-        case 2:
-          es2();
-          break;
-        case 3:
-          es3();
-          break;
-        case 4:
-          es4();
-          break;
-        case 5:
-          es5();
-          break;
-        case 22:
-          es22();
-          break;
-        case 39:
-          es39();
-          break;
-        case 43:
-          es43();
-          break;
-        case 57:
-          es57();
-        break;
-        case 71:
-          es71();
-          break;
-        default:
-          cout << "wrong choice" << endl;
+      scelta=-1;
+     }else {
+
+        switch(scelta) {
+      case 0:
+         cout << "good bye"<<endl;
+         break;
+      case 1:
+        es1();
+         break;
+      case 2:
+         es2();
+         break;
+      case 3:
+         es3();
+         break;
+      case 4:
+         es4();
+         break;
+      case 5:
+         es5();
+         break;
+      case 20:
+         es20();
+         break;
+      case 31:
+         es31();
+         break;
+      case 47:
+         es47();
+         break;
+       case 61:
+         es61();
+         break; 
+      case 62:
+         es62();
+         break; 
+      default:
+         cout << "wrong choice"<<endl;
+        }
+     }
+      if (scelta!=0){
+         string avanti;
+         cout<<"scrivi un carattere e digita invio"<<endl;
+         cin >> avanti;
       }
-    }
-     if(scelta != 0){
-        cout << "\nscrivi un carattere e digita invio" << endl;
-        string avanti;
-        cin >> avanti;
-      }
-  }while(scelta != 0);
-return 0;
+   } while(scelta != 0);
+
+    return 0;
 }
+void es1() {
+   //tutti gli esercizi cominciano così
+  int  N=100; // qua solo cinque perche dobbiamo metterli a mano
+  int v[N];// cambiando il valore di N cambia la dimensione del vettore
+  //Caricare un vettore di N elementi con valori letti da tastiera.
+  cout<<"inserisci "<<N<<" numeri interi (premi invio dopo ogni valore ) "<< endl;
+  for (int i =0; i<N; i++) {
+    cin>> v[i];
+  }
+   // alla fine di ogni esercizio visualizzo il/i vettore/i
+   for (int i =0; i<N;i++) {
+    cout<< v[i]<<" ";
+  }
+   cout<<"\nfatto!"<<endl;
+}
+void es2 () {
+     //tutti gli esercizi cominciano così
+  int  N=100;
+  int v[N];// cambiando il valore di N cambia la dimensione del vettore
+   for (int i =0; i<N; i++){
+      v[i]=i;
+   }
+     // alla fine di ogni esercizio visualizzo il/i vettore/i
+   for (int i =0; i<N;i++) {
+    cout<< v[i]<<" ";
+  }
+   cout<<"\nfatto!"<<endl;
+}
+void es3 () {
+      //tutti gli esercizi cominciano così
+  int  N=5;
+  int v[N];// cambiando il valore di N cambia la dimensione del vettore
+  // carico il vettore con numeri a caso
+   for (int i =0; i<N;i++){
+     v[i]=rand() % 9 + 1;
+   }
+   // nel caricamento carico e basta
+   int somma=0;
+    for (int i=0; i<N; i++){
+      somma= somma+v[i];
+    }
+    cout<<" somma= "<<somma<<endl;
 
 
-void es1(){
-cout << "Caricare un vettore di N elementi con valori letti da tastiera." << endl;
-  int contaValori=5;
-  int valori[contaValori];
-  cout << "Dovrai inserire " << contaValori << " valori" << endl;
+      // alla fine di ogni esercizio visualizzo il/i vettore/i
+   for (int i =0; i<N;i++) {
+      cout<< v[i]<<" ";
+   }
+    cout<<"\nfatto!"<<endl;
+}
+void es4 () {
+   //Dato un vettore di N elementi, determinare se ciascun elemento è pari o dispari (ovviamente gli elementi sono numeri interi) (l'output sarà l'elenco degli elementi del vettore con a fianco la scritta "pari" o "dispari").
+       //tutti gli esercizi cominciano così
+int contaValori = 20;
+  int v[contaValori];
     for (int i = 0; i < contaValori; i++){
-      cout << "inserisci il " << (i+1) << "Â° valore" << endl;
-      cin >> valori[i];
+      v[i] = rand() % 100 + 1;
     }
-    for ( int i = 0; i < contaValori; i++){
-      cout << valori[i] << ", ";
-    }
-    cout << "\nfatto" << endl;
+      for(int i = 0; i < contaValori; i++){
+        if(v[i] % 2 == 0){
+          cout << v[i] << " pari " << endl;
+        }else if(v[i] % 2 != 0){
+          cout << v[i] << " dispari " << endl;
+        }
+      }
+}
+void es5 () {
+   int N=100;
+  int vettore[N];
+  int somma=0;
+  int i;
+  for(i=0;i<N;i++){
+      vettore[i]=rand()%10;
+       cout<<vettore[i]<<" ";
+  }
+  cout << endl;
+  i=0;
+  while(vettore[i]!= 0 ){
+  somma=somma+vettore[i];
+  i++;
+  }
+cout<<"La somma è "<<somma<<endl;
+cout<<"il loro numero è"<<i<<endl;
 }
 
-void es2(){
-cout << "Costruire un vettore di N elementi, inserendo in ogni elemento il valore del suo indice." << endl;
- int contaValori;
- cout <<"Inserisci il numero di valori che vuoi avere: ";
- cin >> contaValori;
 
- int vettore[contaValori];
-  for(int i = 0; i < contaValori; i++){
-    vettore[i] = i;
+void es20(){
+  //20.Nei vettori A e B, ciascuno di N elementi, sono memorizzate due parole di N caratteri ciascuna, un carattere per ogni elemento di vettore. Verificare se le due parole sono uguali ed in caso contrario determinare quale delle due parole precede l'altra nell'ordine alfabetico. "
+  //
+  //string v[5]={"m","a","r","i","o"};
+  //string w[5]={"m","a","d","i","o"};
+  int N;
+  string v,w;
+  cout<<" scrivi due parole (una per riga)"<<endl;
+  
+  cin>>v;
+  cin>>w;
+  if(v.length()<w.length()){
+    N=v.length();
+  }else{
+    N=w.length();    
+  }
+  int i=0;
+  while (i<N && v[i]==w[i]){  
+    i++;
+  } 
+  if(i==N){
+      if(v.length()==w.length())
+    cout << "sono uguali"<<endl;
+    else{
+      if(v.length()<w.length())
+        cout<<v<<" Precede "<<w<<endl;
+      else
+         cout<<w<<" Precede "<<v<<endl;
+   }
+  }else{
+    if(v[i]>w[i]){
+      cout<<w<<" precede "<<v<<endl;
+    }else{
+      cout<<v<<" precede "<<w<<endl;
+    }
+  }
+}
+void es31(){
+    int casella[8] [7];  // lo 0 mi turba, cominciamo con 1;
+  //provo a visualizzare il primo mese supponendo Domenica sia il primo giorno del mese;
+   int giorniDelMese[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+   string mesi[]={"","gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre","ottobre", "novembre","dicembre"}; 
+   int settimana=1;
+   int giornoIniziale=2;//giorno della settimana del primo giorno del mese
+   int giornoMese=1;
+   for (int m = 1; m<13; m++){
+      giornoMese = 1;
+      cout<<"\n"<<mesi[m]<<" 1990";
+      cout<< "\n| D| L| M| M| G| V| S|"<<endl;
+      for(int casella = 1; casella < giorniDelMese[m] + giornoIniziale; casella++){
+            if (casella<giornoIniziale){
+               cout<<"|  ";
+            }else {
+               if(giornoMese<10 ){
+                  cout<<"| "<<giornoMese;
+               }else {
+                  cout<< "|"<<giornoMese;
+               }
+               giornoMese++;
+            }// fine else
+            settimana++;
+            if (settimana>7){
+               cout<<"| \n";
+               settimana = 1;
+            }
+      }// fine for
+     
+      //cout<<"settimana "<<settimana<<endl;
+     if(settimana!=1){
+    
+        for (int i = settimana; i<=8; i++){
+           cout << "|  ";
+        }
+          cout<<endl;
+       }
+     
+ 
+      giornoIniziale = settimana;
+      settimana = 1;
+   }
+
+}
+
+string GeneraString(int quante);
+string GeneraClasse(int quante);
+
+
+void es47(){
+   cout << "e' dato un elenco di N studenti con nome, classe, voto finale. Stampare il voto piu' basso, quello piu' alto e il nome e la classe degli studenti ai quali appartengono. Calcolare la media aritmetica dei voti e verificare se e' sufficiente o insufficiente (<6). Stampare nome e classe degli studenti che hanno il voto finale inferiore alla media aritmetica dei voti. Contare il numero dei promossi e dei respinti e calcolarne le rispettive percentuali. Stampare l'elenco dei promossi cioe' di coloro che hanno il voto finale sufficiente. Caricare il vettore nel codice usando una struttura." << endl << endl;
+
+  struct struct_Studente{
+    string nome;
+    string classe;
+    float voto;
+  };
+
+  int N = 10;
+  struct_Studente Studente[N];
+  int quante = 2;
+  int min = INT_MAX;
+  int max = INT_MIN;
+  int presenteMax = 0;
+  int presenteMin = 0;
+  float promossi = 0;
+  float promossiPerc;
+  float bocciati = 0;
+  float bocciatiPerc;
+  float media = 0;
+  float somma = 0;
+  for(int i = 0; i < N; i++){
+    Studente[i].classe = GeneraClasse(quante);
+    Studente[i].nome = GeneraString(6);
+    Studente[i].voto = rand() % 9 + 1;
+  }
+  cout << " nome " << " classe " << " voto\n";
+  for(int i = 0; i < N; i++){
+    cout << Studente[i].nome << "  " << Studente[i].classe << "     " << Studente[i].voto << "\n";
+  }
+  for(int i = 0; i < N; i++){
+    if(Studente[i].voto > max){
+      max = Studente[i].voto;
+    }
+    if(Studente[i].voto < min){
+      min = Studente[i].voto < min;
+    }
+    somma = somma + Studente[i].voto;
+    if(Studente[i].voto > 6){
+      promossi++;
+    }else{
+      bocciati++;
+    }
+  }
+  media = somma / N;
+  promossiPerc = promossi / N * 100;
+  bocciatiPerc = bocciati / N * 100;
+  for(int i = 0; i < N; i++){
+    if(Studente[i].voto == max){
+      presenteMax++;
+    }else
+    if(Studente[i].voto == min){
+      presenteMin++;
+    }
+  }
+  cout << "\n\n\nvoto piu' alto " << max << ", ";
+  if(presenteMax < 2){
+    cout << "studente:";
+    for(int i = 0; i < N; i++){
+      if(Studente[i].voto == max){
+        cout << Studente[i].nome << " " << Studente[i].classe;
+      }
+    }
+  }else{
+    cout << "studenti:";
+    for(int i = 0; i < N; i++){
+      if(Studente[i].voto == max){
+        cout << Studente[i].nome << " " << Studente[i].classe << ", ";
+      }
+    }
+  }
+cout << "\nvoto piu' basso " << min << ", ";
+  if(presenteMin < 2){
+    cout << "studente:";
+    for(int i = 0; i < N; i++){
+      if(Studente[i].voto == min){
+        cout << Studente[i].nome << " " << Studente[i].classe;
+      }
+    }
+  }else{
+    cout << "studenti:";
+    for(int i = 0; i < N; i++){
+      if(Studente[i].voto == min){
+        cout << Studente[i].nome << " " << Studente[i].classe << ", ";
+      }
+    }
+  }
+  if(media > 6){
+   cout << "\nmedia: " << media << ", sufficiente\n";
+  }else{
+   cout << "\nmedia: " << media << ", insufficiente\n";
+  }
+  cout << "studenti con voto inferiore alla media:";
+  for(int i = 0; i < N; i++){
+    if(Studente[i].voto < media){
+      cout << Studente[i].nome << " " << Studente[i].classe << ",";
+    }
+  }
+  cout << "\npromossi " << promossi << ", percentuale promossi " << promossiPerc << "%. bocciati " << bocciati << ", percentuale bocciati " << bocciatiPerc << "%\n";
+  cout << "promossi:";
+  for(int i = 0; i < N; i++){
+    if(Studente[i].voto > 6){
+      cout << Studente[i].nome << " " << Studente[i].classe << ", ";
+    }
+  }
+}
+string GeneraClasse(int quante){
+  int sezioneNum[5] = {1,2,3,4,5};
+  string sezioneChar[3] = {"A","B","C"};
+  string classe = "";
+  for(int i = 0; i < quante; i++){
+    if(i % 2 == 0){
+      classe = classe + to_string(sezioneNum[rand() % 5]);
+    }else if(i % 2 != 0){
+      classe = classe + sezioneChar[rand () % 3];
+    }
+  }
+  return classe;
+}
+
+string GeneraString(int quante){
+  string vocali[5] = {"a","e","i","o","u"};
+  string consonanti[16] = {"b","c","d","f","g","h","l","m","n","p","q","r","s","t","v","z"};
+  string stringa = "";
+  for(int i = 0; i < quante; i++){
+    if(i % 2 != 0){
+      stringa = stringa + vocali[rand() % 5];
+    }else{
+      stringa = stringa + consonanti[rand() % 16];
+    }
+  }
+  return stringa;
+}
+
+
+
+void es62(){
+
+
+cout << "Cercare un elemento X nella porzione di vettore delimitata da due indici (non negativi peripotesi) I due indici NON sono inclusi nella porzione. Se nella porzione ci sono piu' elementi X va visualizzato ogni elemento (se ci sono tre 5, l'ouput sara' 5 5 5).\n\n";
+  int N = 20;
+  int vettore[N];
+  for(int i = 0; i < N; i++){
+    vettore[i] = rand() % 10 ;
     cout << vettore[i] << " ";
   }
-}
-
-void es3(){
-cout << "Caricare un vettore di N elementi, stampando la somma dei suoi elementi." << endl;
-  int contaValori;
-  cout <<"Inserisci il numero di valori che vuoi avere: ";
-  cin >> contaValori;
-  int vettore[contaValori];
-  int somma = 0;
-    for(int i = 0; i < contaValori; i++){
-      vettore[i]=rand() % 9 + 1;
-      
+  int indice1;
+  int indice2;
+  int valoreX;
+  int contatore = 0;
+  cout << "\ninserisci elemento 'X':";
+  cin >> valoreX;
+  cout << "\nprimo indice";
+  cin >> indice1;
+  cout << "secondo indice";
+  cin >> indice2;
+  for(int i=indice1+1; i<indice2; i++){
+    if (valoreX==vettore[i]){
+      cout<<vettore[i]<<" ";
     }
-      for(int i = 0; i < contaValori; i++){
-        somma = somma + vettore[i];
-      }
-
-        for(int i = 0; i < contaValori; i++){
-          cout << vettore[i] << " ";
-        }
-    cout << "la somma e': " << somma << endl;
-  
-}
-
-void es4(){
-cout << "Dato un vettore di N elementi, determinare se ciascun elemento e' pari o dispari." << endl;
-  int contaValori;
-  cout <<"Inserisci il numero di valori che vuoi avere: ";
-  cin >> contaValori;
-  int vettore[contaValori];
-    for (int i = 0; i < contaValori; i++){
-      vettore[i] = rand() % 100 + 1;
-    }
-      for(int i = 0; i < contaValori; i++){
-        if(vettore[i] % 2 == 0){
-          cout << vettore[i] << " pari " << endl;
-        }else if(vettore[i] % 2 != 0){
-          cout << vettore[i] << " dispari " << endl;
-        }
-      }
-}
-
-void es5(){
-  cout << "Caricare un vettore di N elementi. Scorrendo il vettore, al primo zero incontrato stampare la somma di tutti gli elementi considerati e il loro numero." << endl;
-  int n = 100;
-  int numbers[n];
-  int somma = 0;
-    for (int i = 0; i < n; i++){
-      numbers[i] = rand() % 10;
-    }
-   
-    numbers[rand () % n] = 0;
-
-    for(int i = 0; i < n; i++){
-      if(i != n - 1){
-        cout << numbers[i] << ", ";
-      }else
-      cout << numbers[i] << ".";
-    }
-    cout << endl;
-    int i;
-    for(i = 0; numbers[i] != 0 ; i++){
-      somma = somma + numbers[i];
-    }
-  cout << "Ci sono "<<i<<" elementi prima dello 0 e la loro somma e': " << somma << "." << endl;
-}
-
-void es22() {
-    cout << "Dato un vettore di N numeri aventi al massimo 3 cifre, interi positivi, contare le frequenze con le quali i numeri si ripartiscono nelle decadi 0-9, 10-19, ...., 980-999 e memorizzare tali frequenze nel vettore DEC." << endl;
-  int N = 18, j = 0;
-  int DEC[100];
-  for (int i = 0; i < 1000; i++){
-    DEC[i] = 0;
-  }
-  /*int numeri[18] = {41,485,340,526,188,739,489,387,988,488,710,173,304,843,970,988,843,970};*/
-  int numeri[N];
-  int numeriDivisi[N];
-  // genera numeri
-  for (int i = 0; i < N; i++ ){
-    numeri[i] = rand() % 999;
-      cout << numeri[i] << " ";
   }
   cout << endl;
-  //divide di 10
-  for (int i = 0; i < N; i++){
-    numeriDivisi[i] = trunc(numeri[i]/10);
-    cout << numeriDivisi[i]*10 << " ";
-  }
-  cout << endl;
-  // inserisci i valori
-  for (int i = 0; i < N; i++ ) {
-    DEC[numeriDivisi[i]] = DEC[numeriDivisi[i]] + 1;
-  }
-  for (int i = 0; i < 999; i++) {
-    if(DEC[i] != 0){
-      j = i*10;
-      cout << j << " " << j+9 << " " << DEC[i] << endl;
-    }
-  }
 }
 
-void es39() {
-    cout << "Dati due vettori di dimensione N contenenti numeri interi positivi costruire un vettore C contenente alternativamente un elemento dispari e uno pari (provenienti indifferentemente dai due vettori A e B). Procedere alla costruzione di C fino a quando uno dei due insiemi (pari o dispari) finisce. Visualizzare C e, se i due insiemi non hanno lo stesso numero di elementi, gli elementi rimasti." << endl;
-    int n = 10;
-    int A[10] = {};
-    int B[10] = {};
-    int pari[20] = {};
-    int dispari[20] = {};
-    int C[20] = {};
-    int resto = 0, posPari = 0, posDispari = 0, posC = 0;
-    for (int i = 0; i < n; i++){
-       A[i] = rand() % 10 + 1;
-       B[i] = rand() % 10 + 1;
-    }
-    cout << "A:\n";
-    for (int i = 0; i < n; i++) {
-      cout << A[i] << " ";
-    }
-    cout << endl;
-    cout << "B:\n";
-    for (int i = 0; i < n; i++) {
-      cout << B[i] << " ";
-    }
-    for (int i = 0; i < n; i++) {
-      if(A[i] % 2 == 0) {
-            
-            pari[posPari] = A[i];
 
-            posPari = posPari + 1;
-            
-        } else {
 
-            dispari[posDispari] = A[i];
 
-            posDispari = posDispari + 1;
 
-        }
-        if(B[i] % 2 == 0) {
-          
-            pari[posPari] = B[i];
 
-            posPari = posPari + 1;
-          
-        } else {
-          
-            dispari[posDispari] = B[i];
+void es61(){
+  //Dato un vettore numerico di n elementi determinare qual e' l'elemento (o gli elementi) che si ripete piu' volte e quante volte si ripete. 
 
-            posDispari = posDispari + 1;
+cout << "Dato un vettore numerico di n elementi determinare qual e' l'elemento (o gli elementi) che si ripete piu' volte e quante volte si ripete.\n\n";
 
-        }
-    }
-    cout << endl;
-  
-    if ( posPari > posDispari ) {
-        for (int i = 0; i < posDispari ; i++) {
-            C[posC] = pari[i];
-            posC = posC + 1;
-            C[posC] = dispari[i];
-            posC = posC + 1;
-        }
-    } else {
-        for (int i = 0; i < posPari ; i++) {
-            C[posC] = pari[i];
-            posC = posC + 1;
-            C[posC] = dispari[i];
-            posC = posC + 1;
-        }
-    }
-  
-    cout << "pari:\n";
-    for (int i = 0; i < posPari; i++) {
-        cout << pari[i] << " ";
-    }
-    cout << endl;
-    cout << "dispari:\n";
-    for (int i = 0; i < posDispari; i++) {
-        cout << dispari[i] << " ";
-    }
-    cout << endl;
-    cout << endl;
-    
-    if ( posPari > posDispari ) {
-        for (int i = 0; i < posDispari*2; i++) {
-            cout << C[i] << " ";
-            resto = i;
-        }
-        cout << "\nrestanti: " << endl;
-        for (int i = resto/2 +1; i < posPari; i++) {
-            cout << pari[i] << " ";
-        }
-    } else {
-        for (int i = 0; i < posPari*2; i++) {
-            cout << C[i] << " ";
-            resto = i;
-        }
-        cout << "\nrestanti: " << endl;
-        for (int i = resto/2 +1; i < posDispari; i++) {
-            cout << dispari[i] << " ";
-        }
-    }
-    
-    
-}
-
-void es43() {
-    cout << "Le temperature minime registrate nei giorni di un mese sono organizzate in un vettore. Calcolare la media delle temperature rilevate nel mese e stamparla. Si stampino poi i giorni del mese in cui le temperature sono state inferiori alla media mensile." << endl;
-  float media = 0;
-  int sommaTemperature = 0;
-  int temperature[31];
-  for (int i = 0; i < 32; i++) {
-    temperature[i] =  rand () % 15 + 20;
-    sommaTemperature = sommaTemperature + temperature[i];
+//struttura dati
+struct struct_Numeri{
+  int numeri;
+  int frequenza;
+};
+  int N = 13;
+  int iF = 0;
+  struct_Numeri Numeri[N];
+  struct_Numeri Frequenza;
+  int numeriFrequenti[N];
+  int maxFrequenza = 0;
+  bool giaPresente = true;
+  for(int i = 0; i < N; i++){
+    Numeri[i].numeri = rand() % 10 + 1;
+    cout << Numeri[i].numeri << " ";
   }
-  media = sommaTemperature/31;
-  for (int i = 1; i < 32; i++) {
-    if ( temperature[i] < media ) {
-      cout << temperature[i] << endl;
-      cout << "giorno: " << i << endl;
+  for(int i = 0; i < N; i++){
+    Frequenza.frequenza = 0;
+    for(int j = 0; j < N; j++){
+      if(Numeri[i].numeri == Numeri[j].numeri){
+        Frequenza.frequenza += 1;
+      }
+    }
+    if(maxFrequenza < Frequenza.frequenza){
+      maxFrequenza = Frequenza.frequenza;
     }
   }
-  cout << "--------------" << endl;
-  cout << "la media e': " << media << endl;
-}
-
-void es57() {
-    cout << "Si hanno N schede di magazzino riportanti: codice, descrizione, giacenza, prezzo di acquisto, prezzo di vendita.\nLeggere i movimenti effettuati durante una giornata lavorativa e aggiornare le schede del magazzino.\nI movimenti di magazzino sono descritti da codice articolo e quantita' (se la quantita' e' positiva si tratta di un carico se invece e' negativa di uno scarico).\nSe un articolo non e' in magazzino, stampare il messaggio: 'ARTICOLO ..... NON IN MAGAZZINO'\nSe la giacenza e' zero, stampare il messaggio: 'ARTICOLO ..... CON GIACENZA A ZERO'.\nSe la quantita' disponibile e' inferiore a quella richiesta, stampare il messaggio:'ARTICOLO ..... Q/TA' ..... - quantita' non sufficiente-'.\nStampare la situazione di magazzino prima e dopo la movimentazione.\nStampare il valore della merce presa in carico e il valore della merce venduta (cioe' scaricata.)" << endl;
-  struct Scheda {
-    int codice, giacenza;
-    float prezzoAcquisto, prezzoVendita;
-    string descrizione;
-  };
-  struct Movimento {
-    int codice, quantita;
-  };
-  struct outputMovimento {
-    int codice, quantita, errore;
-  };
-    outputMovimento outputMovimenti [] = {
-  
-    };
-    Scheda prodotti[] = {
-    {
-      1, 1, 4.5, 5.5, "Apple"
-    },
-    {
-      2, 3, 4.5, 5.5, "Windows"
-    },
-    {
-      3, 4, 4.5, 5.5, "Linux"
+  cout << "\nfrequenza massima:" << maxFrequenza << endl;
+  for(int i = 0; i < N; i++){
+    Frequenza.frequenza = 0;
+    for(int j = 0; j < N; j++){
+      if(Numeri[i].numeri == Numeri[j].numeri){
+        Frequenza.frequenza += 1;
+      }
     }
-    };
-  
-    Scheda prodottiIniziali[] = {
-    {
-      1, 1, 4.5, 5.5, "Apple"
-    },
-    {
-      2, 3, 4.5, 5.5, "Windows"
-    },
-    {
-      3, 4, 4.5, 5.5, "Linux"
-    }
-    };
-  string continua = "si";
-  int t = 0;
-  int mvm = 6;
-  Movimento movimento [] = {
-    {
-      2,3
-    },
-    {
-      1,-10
-    },
-    {
-      3,3
-    },
-    {
-      1,32
-    },
-    {
-      1,30
-    },
-    {
-      4,234
-    }
-  };
-  float valoreCarico = 0, valoreScarico = 0;
-  int n = 3, counter = 0;
-  for (int vov = 0; vov < mvm; vov++){
-    int verify = 0, aggiornato = 0, i = 0;
-      //cout << "scrivi il numero del prodotto " <<endl;
-    
-      outputMovimenti[t].codice = movimento[vov].codice;
-    
-      do {
-        for (int i = 0; i < 3; i++) {
-          if (movimento[vov].codice == prodotti[i].codice) {
-          verify = 1;
-          //cout << "scrivi la quantita' " <<endl;
-            outputMovimenti[t].quantita = movimento[vov].quantita;
-            if (aggiornato == 0 ) {
-            for (int q = 0; q < n; q++) {
-              if (movimento[mvm].codice == prodotti[q].codice) {
-                if (prodotti[q].giacenza + movimento[vov].quantita < 0) {
-                  outputMovimenti[t].errore = 2;
-                  //cout << "ARTICOLO: " << prodotti[q].descrizione << " Q/TA: " << prodotti[q].giacenza << " - quantita' insufficente -" << endl;
-
-                } else {
-                  prodotti[q].giacenza = prodotti[q].giacenza + movimento[vov].quantita;
-                  aggiornato = 1;
-                }
-              }
-            }
-          }
-          if (aggiornato == 1) {
-            //cout << "Movimeto aggiornato !" << endl;
-          }
-        }
-            
-        }
-        if (verify == 0) {
-            outputMovimenti[t].errore = 3;
-            //cout << "Prodotto non trovato" << endl;
-        }
-        t = t + 1;
-        verify = 1;
-      } while (verify != 1);
-    }
-   cout << "\n";
-      cout << "cod" << "  " << "name" << "  " << "qta" << "  " << "PA/PV" << endl;
-      for (int i = 0; i < n; i++) {
-        if (prodottiIniziali[i].giacenza > 0) {
-          cout << prodottiIniziali[i].codice << "  " << prodottiIniziali[i].descrizione << "  " << prodottiIniziali[i].giacenza << "  " << prodottiIniziali[i].prezzoAcquisto << "/" << prodottiIniziali[i].prezzoVendita << endl;
-        } else {
-          cout << "ARTICOLO: " << prodottiIniziali[i].descrizione << " CON GIACENZA 0" << endl;
+    if(Frequenza.frequenza == maxFrequenza){
+      giaPresente = false;
+      for(int j = iF; j >= 0; j--){
+        if(numeriFrequenti[j] == Numeri[i].numeri){
+          giaPresente = true;
         }
       }
-    cout << "\nmovimenti\n";
-    for (int i = 0; i < t; i++) {
-    cout << outputMovimenti[i].codice;
-        if (outputMovimenti[i].errore == 3){
-            cout << " Prodotto non trovato";
-        } else {
-            cout << "  " << outputMovimenti[i].quantita;
-        }
-        if (outputMovimenti[i].errore == 2){
-         cout << " ARTICOLO: " << outputMovimenti[i].codice << " Q/TA: " << outputMovimenti[i].quantita << " - quantita' insufficente" << endl;
-        } else {
-            cout << "\n";
-        }
-  }
-    cout << "\n";
-      cout << "cod" << "  " << "name" << "  " << "qta" << endl;
-      for (int i = 0; i < n; i++) {
-          if (prodotti[i].giacenza > 0) {
-            cout << prodotti[i].codice << "  " << prodotti[i].descrizione << "  " << prodotti[i].giacenza << endl;
-          } else {
-            cout << "ARTICOLO: " << prodotti[i].descrizione << " CON GIACENZA 0" << endl;
-          }
+      if(!giaPresente){
+        numeriFrequenti[iF] = Numeri[i].numeri;
+        iF++;
       }
-    cout << endl;
-     for (int i = 0; i < n; i++) {
-          if (prodotti[i].giacenza != prodottiIniziali[i].giacenza ) {
-              if (prodotti[i].giacenza < prodottiIniziali[i].giacenza ) {
-                counter = prodottiIniziali[i].giacenza - prodotti[i].giacenza;
-                  valoreScarico = prodotti[i].prezzoVendita * counter;
-                counter = 0;
-              } else {
-                counter = prodotti[i].giacenza - prodottiIniziali[i].giacenza;
-                  valoreCarico = prodotti[i].prezzoAcquisto * counter;
-                counter = 0;
-              }
-          }
-      }
-    if (valoreCarico != 0) {
-      cout << "valore di carico " << " = " << valoreCarico << endl;
     }
-    if (valoreScarico != 0) {
-      cout << "valore di scarico " << " = " << valoreScarico << endl;
-    }
-}
-
-void es71(){
-    cout << "Leggere un vettore V di N interi e scrivere gli indici degli elementi di massimo o minimo relativo. Un elemento A(i) e' un massimo/minimo relativo quando il precedente A(i-1) e il successivo A(i+1) sono entrambi minori/maggiori di A[i]." << endl;
-  int numeri[31];
-  cout << endl;
-  for (int i = 0; i < 31; i++) {
-    numeri[i] =  rand () % 100 + 0;
-    cout << numeri[i] << " ";
   }
-  cout << endl;
-  cout << endl;
-  for (int i =1 ; i < 30; i++) {
-    if (numeri[i] > numeri[i-1] && numeri[i] > numeri[i+1]) {
-      cout << "L'elemento con indice " << i << " e' un massimo relativo" << endl;
-    } else if (numeri[i] < numeri[i-1] && numeri[i] < numeri[i+1]) {
-      cout << "L'elemento con indice " << i << " e' un minimo relativo" << endl;
+  if(iF == 1){
+    cout << "\nil numero " << numeriFrequenti[iF - 1] << " compare " << maxFrequenza << " volte\n";
+  }else{
+    cout << "i numeri ";
+    for(int i = 0; i < iF; i++){
+      cout << numeriFrequenti[i] << " ";
     }
+    cout << "compaiono " << maxFrequenza << " volte\n";
   }
 }
